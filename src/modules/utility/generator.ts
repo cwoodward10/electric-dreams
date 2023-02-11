@@ -1,5 +1,17 @@
-import GenerationService from '$apiinterfaces/gooseai/generation/generation_pb_service';
-import Generation from "$apiinterfaces/gooseai/generation/generation_pb";
+import { GenerationServiceClient } from '@stabilitySDK/generation_pb_service';
+import {
+    DiffusionSampler, 
+    ImageParameters, 
+    TransformType,
+    Request,
+    ArtifactType,
+    ClassifierParameters,
+    SamplerParameters,
+    StepParameter,
+    ScheduleParameters,
+    Prompt,
+    FinishReason,
+} from '@stabilitySDK/generation_pb';
 import { grpc } from "@improbable-eng/grpc-web";
 
 /**
@@ -12,11 +24,11 @@ import { grpc } from "@improbable-eng/grpc-web";
  */
 export function runGenerator(
     prompt: string, 
-    callbackFunc: (args: any) => {}, 
+    callbackFunc: (args: any) => void, 
     apiKey: string, 
     params: any) {
     // Set up image parameters
-    const imageParams = new Generation.ImageParameters();
+    const imageParams = new ImageParameters();
     imageParams.setWidth(params.width || 512);
     imageParams.setHeight(params.height || 512);
     imageParams.addSeed(params.seed || 1234);
@@ -24,22 +36,22 @@ export function runGenerator(
     imageParams.setSteps(params.steps || 50);
 
     // Use the `k-dpmpp-2` sampler
-    const transformType = new Generation.TransformType();
-    transformType.setDiffusion(Generation.DiffusionSampler.SAMPLER_K_DPMPP_2M);
+    const transformType = new TransformType();
+    transformType.setDiffusion(DiffusionSampler.SAMPLER_K_DPMPP_2M);
     imageParams.setTransform(transformType);
 
     // Use Stable Diffusion 2.0
-    const request = new Generation.Request();
+    const request = new Request();
     request.setEngineId(params.engineId || "stable-diffusion-512-v2-1");
-    request.setRequestedType(Generation.ArtifactType.ARTIFACT_IMAGE);
-    request.setClassifier(new Generation.ClassifierParameters());
+    request.setRequestedType(ArtifactType.ARTIFACT_IMAGE);
+    request.setClassifier(new ClassifierParameters());
 
     // Use a CFG scale of `13`
-    const samplerParams = new Generation.SamplerParameters();
+    const samplerParams = new SamplerParameters();
     samplerParams.setCfgScale(params.cfgScale || 13);
 
-    const stepParams = new Generation.StepParameter();
-    const scheduleParameters = new Generation.ScheduleParameters();
+    const stepParams = new StepParameter();
+    const scheduleParameters = new ScheduleParameters();
 
     // Set the schedule to `0`, this changes when doing an initial image generation
     stepParams.setScaledStep(0);
@@ -50,7 +62,7 @@ export function runGenerator(
     request.setImage(imageParams);
 
     // Set our text prompt
-    const promptText = new Generation.Prompt();
+    const promptText = new Prompt();
     promptText.setText(prompt);
 
     request.addPrompt(promptText);
@@ -60,7 +72,7 @@ export function runGenerator(
     metadata.set("Authorization", "Bearer " + apiKey);
 
     // Create a generation client
-    const generationClient = new GenerationService.GenerationServiceClient(
+    const generationClient = new GenerationServiceClient(
         "https://grpc.stability.ai",
         {}
     );
@@ -73,14 +85,14 @@ export function runGenerator(
         data.getArtifactsList().forEach((artifact) => {
             // Oh no! We were filtered by the NSFW classifier!
             if (
-                artifact.getType() === Generation.ArtifactType.ARTIFACT_TEXT &&
-                artifact.getFinishReason() === Generation.FinishReason.FILTER
+                artifact.getType() === ArtifactType.ARTIFACT_TEXT &&
+                artifact.getFinishReason() === FinishReason.FILTER
             ) {
                 return console.error("Your image was filtered by the NSFW classifier.");
             }
 
             // Make sure we have an image
-            if (artifact.getType() !== Generation.ArtifactType.ARTIFACT_IMAGE) return;
+            if (artifact.getType() !== ArtifactType.ARTIFACT_IMAGE) return;
 
             // You can convert the raw binary into a base64 string
             const base64Image = btoa(

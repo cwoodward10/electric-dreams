@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-//import { runGenerator } from "../modules/generator/generator";
+import { runGenerator } from "../modules/utility/generator";
 
 function TheGenerator() {
     const [dreamPrompt, setDreamPrompt] = useState('');
@@ -22,7 +22,7 @@ function TheGenerator() {
         setGeneratedImages([]);
 
         // create new images
-        //runGenerator(dreamPrompt, callbackOnDream.bind(this), apiKey, params)
+        runGenerator(dreamPrompt, callbackOnDream, apiKey, params)
     }
 
     return (
