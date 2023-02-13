@@ -1,37 +1,23 @@
 import { useState } from "react";
 
-import { runGenerator, GenerationResponse } from '../modules/utility/generator';
+import { runGenerator, GenerationResponse, GeneratorParams } from '../modules/utility/generator';
 
-function TheGenerator() {
+type props = {
+    onImagesGenerated: (i: GenerationResponse|undefined) => void
+}
+
+function TheGenerator({onImagesGenerated}: props) {
     const [dreamPrompt, setDreamPrompt] = useState('');
     const [apiKey, setApiKey] = useState('');
-    const [params, setParams] = useState({});
-    /**
-     * Array containing {seed, image} objects
-     */
-    const [generatedImages, setGeneratedImages] = useState(undefined as undefined|GenerationResponse);
 
-    let imageElements = generatedImages ? 
-        (
-            <ul>
-                {
-                    generatedImages.artifacts.map((g, index) => {
-                        return (
-                            <li key={index}>
-                                <img src={`data:image/png;base64,${g.base64}`} />
-                            </li>
-                        )
-                    })
-                }
-            </ul>
-        ) : null;
+    const [params, setParams] = useState({} as GeneratorParams);
 
     async function handleOnSubmit(e: any) {
         e.preventDefault();
 
         // create new images
         const images = await runGenerator(dreamPrompt, apiKey, params);
-        setGeneratedImages(images);
+        onImagesGenerated(images);
     }
 
     return (
@@ -66,7 +52,6 @@ function TheGenerator() {
                     </div>
                 </form>
             </section>
-            { imageElements }
         </div>
     )
 }
