@@ -1,10 +1,8 @@
-import './App.css'
-
 import { useState } from 'react';
 
-import TheGenerator from './components/TheGenerator';
+import TheLandingPage from './components/TheLandingPage';
+
 import { GenerationResponse } from './modules/utility/generator';
-import { TheImages } from './components/TheImages';
 
 function App() {
 
@@ -18,9 +16,8 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <TheGenerator onImagesGenerated={onImagesGenerated} />
-      <TheImages generatedImages={generatedImages} />
+    <div className="App w-full h-full">
+      <TheLandingPage />
     </div>
   )
 }
