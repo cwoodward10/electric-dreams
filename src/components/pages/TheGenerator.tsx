@@ -1,12 +1,8 @@
 import { useState } from "react";
 
-import { runGenerator, GenerationResponse, GeneratorParams } from '../modules/utility/generator';
+import { runGenerator, GenerationResponse, GeneratorParams } from '../../modules/utility/generator';
 
-type props = {
-    onImagesGenerated: (i: GenerationResponse|undefined) => void
-}
-
-function TheGenerator({onImagesGenerated}: props) {
+function TheGenerator() {
     const [dreamPrompt, setDreamPrompt] = useState('');
     const [apiKey, setApiKey] = useState('');
 
@@ -16,8 +12,8 @@ function TheGenerator({onImagesGenerated}: props) {
         e.preventDefault();
 
         // create new images
-        const images = await runGenerator(dreamPrompt, apiKey, params);
-        onImagesGenerated(images);
+        //const images = await runGenerator(dreamPrompt, apiKey, params);
+        //onImagesGenerated(images);
     }
 
     return (

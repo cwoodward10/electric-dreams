@@ -1,5 +1,3 @@
-import TheBackgroundImages from "./TheBackgroundImages"
-
 export default function TheLandingPage() {
     const subHeading =(customClasses: string) => (
         <h1 className={`sub-heading text-accent-yellow ${customClasses}`}>
@@ -11,8 +9,8 @@ export default function TheLandingPage() {
     const storyCopy = 'It was a dark and stormy night in this mountain town of theirs.';
 
     return (
-        <article className="w-full h-full relative flex items-center p-4 pb-8 sm:p-8 lg:p-12" >
-            <TheBackgroundImages/>
+        <article className="w-full h-full md:max-h-screen md:overflow-hidden relative flex items-center p-4 pb-8 sm:p-8 lg:p-12" >
+            {/* main */}
             <section 
                 className="z-10 flex flex-col gap-4 border-4 border-solid border-accent-yellow bg-surface p-4 py-8 sm:p-8 lg:p-12 m-auto w-full h-full rounded-2xl lg:rounded-3xl"
                 style={{maxWidth: '1336px'}}
@@ -35,14 +33,14 @@ export default function TheLandingPage() {
                     {/* image column */}
                     <section className="order-1 md:order-2 flex flex-col gap-4">
                         {subHeading('md:hidden')}
-                        <div className="relative w-full">
+                        <div className="relative w-full flex justify-end">
                             <img 
-                                className="w-full h-auto"
+                                className="h-auto"
                                 src='https://i.imgur.com/kzdQmom.png' 
                                 alt='story' 
                             />
                             <div 
-                                className="absolute top-3 left-3 p-2 rounded-sm drop-shadow-lg bg-secondary text-primary text-xs md:text-sm"
+                                className="absolute top-3 right-3 p-2 rounded-sm drop-shadow-lg bg-secondary text-primary text-xs md:text-sm"
                                 style={{maxWidth: '80%',}}
                             >
                                 <p>{storyCopy}</p>
