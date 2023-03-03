@@ -15,9 +15,9 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --color-primary: #0D0C1D;
-  --color-secondary: #C1C1EC;
-  --color-surface: #312E6199;
+  --color-background: #060D16;
+  --color-surface: #FFFFFF0D;
+  --color-surface-elevated: #FFFFFF17;
   --color-accent-yellow: #FBFAA6;
   --color-accent-red: #D35269;
   --color-accent-blue: #06C3C6;
@@ -30,7 +30,7 @@ TAILWIND BREAKPOINTS
 @media (min-width: 768px) { ... }
 @media (min-width: 1024px) { ... }
 @media (min-width: 1280px) { ... }
-@media (min-width: 1536px) { ... } 
+@media (min-width: 1514px) { ... } 
 */
 
 #root, body {
@@ -47,20 +47,29 @@ TAILWIND BREAKPOINTS
 h1, h2, h3, h4, h5, h6 {
   font-family: Orbitron, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
+  color: var(--color-accent-yellow);
 }
 
 .hero {
   font-size: 52px;
-  line-height: 1.1em;
+  line-height: 62px;
+}
+
+.section-heading {
+  font-family: Changa, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 36px;
+  line-height: 52px;
 }
 
 .sub-heading {
   font-family: Changa, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-size: 24px;
+  line-height: 28px;
 }
 
 p {
   font-size: 16px;
+  line-height: 20px;
 }
 
 a {
@@ -70,23 +79,36 @@ a:visted {
   color: var(--color-secondary);
 }
 
+label {
+  color: var(--color-accent-yellow);
+  margin-left: 4px;
+}
+
 @media screen and (min-width: 640px) {
   .hero {
     font-size: 62px;
+    line-height: 72px;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .hero {
     font-size: 100px;
+    line-height: 116px;
+  }
+
+  .section-heading {
+    font-size: 56px;
+    line-height: 68x;
   }
   
   .sub-heading {
-    font-family: Changa, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     font-size: 36px;
+    line-height: 44px;
   }
   
   p {
     font-size: 24px;
+    line-height: 28px;
   }
 }

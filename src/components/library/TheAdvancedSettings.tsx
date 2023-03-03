@@ -1,6 +1,6 @@
 import {  } from 'react';
 
-import { GeneratorParams, ClipGuidanceOptions } from '../modules/utility/generator';
+import { GeneratorParams, ClipGuidanceOptions } from '../../modules/utility/generator';
 
 type props = {
     settings: GeneratorParams,

@@ -1,4 +1,4 @@
-import { GenerationResponse } from '../modules/utility/generator';
+import { GenerationResponse } from '../../modules/utility/generator';
 
 type props = {
     generatedImages: GenerationResponse | undefined;

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 640 480" style="enable-background:new 0 0 640 480;" xml:space="preserve">
+<g id="Paths">
+	<circle id="Cir-1" style="fill:none;stroke:#000000;stroke-miterlimit:10;" cx="32.2" cy="399.8" r="12.2"/>
+	<circle id="Cir-2" style="fill:none;stroke:#000000;stroke-miterlimit:10;" cx="175.5" cy="399.8" r="12.2"/>
+	<circle id="Cir-3" style="fill:none;stroke:#000000;stroke-miterlimit:10;" cx="283.9" cy="271.5" r="12.2"/>
+	<circle id="Cir-4" style="fill:none;stroke:#000000;stroke-miterlimit:10;" cx="423.4" cy="104.6" r="12.2"/>
+	<circle id="Cir-5" style="fill:none;stroke:#000000;stroke-miterlimit:10;" cx="470.7" cy="359.9" r="12.2"/>
+	<circle id="Cir-6" style="fill:none;stroke:#000000;stroke-miterlimit:10;" cx="607.8" cy="359.9" r="12.2"/>
+	<line id="Path-1" style="fill:none;stroke:#000000;stroke-linecap:round;stroke-miterlimit:10;" x1="32" y1="400.5" x2="176" y2="400.5"/>
+	<line id="Path-3" style="fill:none;stroke:#000000;stroke-linecap:round;stroke-miterlimit:10;" x1="283.3" y1="271.5" x2="423.8" y2="104.4"/>
+	<line id="Path-2" style="fill:none;stroke:#000000;stroke-linecap:round;stroke-miterlimit:10;" x1="175.5" y1="399.8" x2="283.3" y2="271.5"/>
+	<line id="Path-4" style="fill:none;stroke:#000000;stroke-linecap:round;stroke-miterlimit:10;" x1="423.8" y1="104.4" x2="471" y2="360.5"/>
+	<line id="Path-5" style="fill:none;stroke:#000000;stroke-linecap:round;stroke-miterlimit:10;" x1="471" y1="360.5" x2="608" y2="360.5"/>
+</g>
+<g id="Text">
+	<text id="text-exposition" text-anchor="middle" transform="matrix(1 0 0 1 71.3243 383.1758)" style="font-family:'MyriadPro-Regular'; font-size:14.9481;">Exposition</text>
+	<text id="text-rising-action" text-anchor="middle" transform="matrix(0.6283 -0.778 0.778 0.6283 315.8781 207.0136)" style="font-family:'MyriadPro-Regular'; font-size:14.9481;">Rising Action</text>
+	<text id="text-conflict" text-anchor="middle" transform="matrix(0.6283 -0.778 0.778 0.6283 206.6366 341.7355)" style="font-family:'MyriadPro-Regular'; font-size:14.9481;">Conflict</text>
+	<text id="text-climax" transform="matrix(1 0 0 1 402.656 80.4776)" style="font-family:'MyriadPro-Regular'; font-size:14.9481;">Climax</text>
+	<text id="text-falling-action" text-anchor="middle" transform="matrix(1 0 0 1 458.5 232.45)" style="font-family:'MyriadPro-Regular'; font-size:14.9481;">Falling Action</text>
+	<text id="text-resolution" text-anchor="middle" transform="matrix(1 0 0 1 506.3154 345.1826)" style="font-family:'MyriadPro-Regular'; font-size:14.9481;">Resolution</text>
+</g>
+</svg>

@@ -1,0 +1,36 @@
+circle, line {
+    fill: none;
+    stroke: var(--color-white);
+    stroke-width: 3;
+    stroke-miterlimit: 10;
+}
+
+circle {
+    fill: var(--color-white);
+}
+
+circle.active,
+line.active {
+    stroke: var(--color-accent-red);
+}
+
+circle.active {
+    fill: var(--color-accent-red)
+}
+
+circle.next {
+    stroke: var(--color-accent-red);
+    fill: var(--color-white)
+}
+
+text {
+    fill: var(--color-white);
+    cursor: pointer;
+
+    font-family: Changa, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 24px;
+}
+
+text.active {
+    fill: var(--color-accent-red);
+}
